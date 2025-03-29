@@ -71,8 +71,8 @@ Use Cases
 | Ask about car prices           | Retrieve price from the database and display discounts/financing options.            |  
 | Inquire about car features     | List specifications (engine, mileage, safety) from the product catalog.            |  
 | Book a test drive              | Collect user details (name, contact) and confirm via email/SMS.                     |  
-| Request dealership location    | Provide address, map link, and operating hours.                                    |  
-| Submit feedback                | Store feedback in a CRM (e.g., Salesforce) and thank the user.                     |  
+| Request dealership location       | Provide address, map link, and operating hours.                                    |  
+| Submit feedback                  | Store feedback in a CRM (e.g., Salesforce) and thank the user.                     |  
 
 ---
 Data Sources
