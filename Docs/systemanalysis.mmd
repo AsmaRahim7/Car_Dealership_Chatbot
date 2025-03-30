@@ -1,0 +1,21 @@
+
+flowchart TD
+ subgraph s1["Architecture of Chatbot"]
+         n2["Customer"] -. "Request-input" .-> n3["Widget"]
+    n3 -. "Answer-Output" .-> n2
+    n5["back-end DB"] -. "customer-request" .-> n3
+    n3 -- Generated Reply --> n5
+    n6["Decision"] --> n5
+    n5 --> n6
+    n7["FrontEnd"] -- Data upload,HTML, Text, URL --> n6
+    n7 -- interaction with users --> n8["APP ADMIN"]
+
+    n2@{ shape: rounded}
+    n3@{ shape: rounded}
+    n5@{ shape: cyl}
+    n6@{ shape: decision}
+    n7@{ shape: rounded}
+
+  end
+   
+
