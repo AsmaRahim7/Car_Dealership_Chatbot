@@ -121,3 +121,84 @@ Key Challenges
 
 --- 
 This requirement analysis sets the foundation for your project, aligning with modern practices like Agile, DevOps, and MLOps. Next steps: System design, sprint planning, and prototyping!
+
+Let’s break this down into a **structured plan** to keep your car dealership chatbot project on track. I’ll recap your system’s scope, outline the sequence for system analysis/design, and highlight key entities/relationships to avoid distractions.
+
+---
+
+### **1. System Analysis & Design Sequence**  
+Follow this workflow to stay organized:  
+
+| **Step**               | **Key Activities**                                                                 | **Tools/Outputs**                                   |  
+|------------------------|-----------------------------------------------------------------------------------|----------------------------------------------------|  
+| **1. Requirements Gathering** | Identify user needs, functional/non-functional requirements, and success metrics.               | Use case diagrams, user stories, stakeholder interviews. |  
+| **2. Scope Definition**       | Define boundaries (closed-domain chatbot for car dealership tasks only).                       | Scope statement, exclusion list.                   |  
+| **3. Entity Identification**  | List core entities (e.g., users, cars, dealership services).                                   | Entity-Relationship Diagram (ERD).                 |  
+| **4. System Architecture**    | Design high-level components (NLP engine, database, API).                                      | Mermaid flowchart/component diagram.               |  
+| **5. Data Flow Design**       | Map how data moves (user query → NLP → database → response).                                   | Data Flow Diagram (DFD).                           |  
+| **6. Detailed Design**        | Define APIs, database schema, and NLP training data.                                           | Swagger/OpenAPI specs, SQL schema scripts.         |  
+
+---
+
+### **2. Key Factors to Stay on Track**  
+- **Closed-Domain Focus**: Only handle car-related queries (prices, models, test drives).  
+- **Retrieval-Based Responses**: Fetch data from Oxford Wheels’ inventory, not generative AI.  
+- **User-Centric Design**: Prioritize features like real-time pricing and test drive bookings.  
+- **Technical Feasibility**: Use tools you already know (Python, Rasa/Dialogflow, GitHub).  
+
+**Avoid**:  
+- Adding voice support or multi-language features (unless stretch goals).  
+- Generative AI experiments (stick to retrieval-based responses).  
+
+---
+
+### **3. Recap of Your System’s Main Points**  
+#### **Core Purpose**  
+A closed-domain chatbot for **[Oxford Wheels](https://oxfordwheels.co.uk)** to:  
+- Answer car price/model inquiries.  
+- Book test drives.  
+- Provide dealership info (location, hours).  
+
+#### **Key Features**  
+1. **NLP Intent Recognition**: Classify user queries (e.g., `ask_price`, `book_test_drive`).  
+2. **Integration with Inventory**: Fetch real-time data from the dealership’s database.  
+3. **Fallback Mechanism**: Escalate unresolved queries to human agents.  
+
+#### **Non-Functional Requirements**  
+- Response time < 2 seconds.  
+- GDPR-compliant data handling.  
+- Scalable cloud deployment (e.g., AWS/Azure).  
+
+---
+
+### **4. Main Entities & Relationships**  
+#### **Entities**  
+1. **User**: Website visitor interacting with the chatbot.  
+2. **Chatbot**: Core system handling queries.  
+3. **Car**: Entity with attributes like `make`, `model`, `price`, `mileage`.  
+4. **Dealership Service**: Test drives, financing, part-exchange.  
+5. **Inventory Database**: Source of car data.  
+
+#### **Relationships**  
+**Explanation**:  
+- A **User** interacts with the **Chatbot**.  
+- The **Chatbot** queries **Cars** and manages **Dealership Services**.  
+- **Cars** and **Services** are stored in the **Inventory Database**.  
+
+---
+
+### **5. Example Workflow for Clarity**  
+1. **User Query**: "What’s the price of a 2020 Audi A3?"  
+2. **Intent Recognition**: NLP classifies intent as `ask_price`.  
+3. **Data Retrieval**: Chatbot fetches price from the **Inventory Database**.  
+4. **Response**: "The 2020 Audi A3 is priced at £18,495."  
+
+---
+
+### **6. Tools to Document This**  
+1. **Mermaid for Diagrams**: Embed ERDs/flowcharts in `docs/design.md`.  
+2. **GitHub for Version Control**: Commit changes frequently with clear messages (e.g., `docs: Updated ERD`).  
+3. **Swagger for API Specs**: Define endpoints like `/get_price` or `/book_test_drive`.  
+
+---
+
