@@ -1,0 +1,19 @@
+flowchart TB
+    subgraph s1["Use Case"]
+        n3(["Ask for price"])
+        n4(["Book a test drive"])
+        n5(["Update inventory"])
+        n6(["Availability"])
+        n8(["Book a test drive"])
+        n9(["Ask for location"])
+        n10(["Financing options"])
+        n11(["Add/remove car information"])
+        n12(["FAQ"])
+        n13(["Evaluate Price"])
+        n14(["Evaluate availability"])
+        n15(["Booking slots"])
+    end
+    n1(["User"])
+    n2(["Admin"])
+    n7["Database"]
+    n7["@{ shape: cyl }"]
