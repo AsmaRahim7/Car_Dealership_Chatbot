@@ -1,0 +1,14 @@
+sequenceDiagram
+    actor User
+    participant Chatbot
+    participant NLP_Engine
+    participant Inventory_DB
+    participant Logging_Service
+
+    User ->> Chatbot: "What's the price of an Audi A3?"
+    Chatbot ->> NLP_Engine: Process query (raw text)
+    NLP_Engine -->> Chatbot: { intent: "ask_price", entities: { make: "Audi", model: "A3" } }
+    Chatbot ->> Inventory_DB: SELECT price FROM cars WHERE make='Audi' AND model='A3'
+    Inventory_DB -->> Chatbot: £25,000
+    Chatbot ->> Logging_Service: Log interaction (query + response)
+    Chatbot -->> User: "The Audi A3 costs £25,000."

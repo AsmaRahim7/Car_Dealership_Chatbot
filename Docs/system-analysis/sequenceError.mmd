@@ -1,0 +1,12 @@
+sequenceDiagram
+    actor User
+    participant Chatbot
+    participant NLP_Engine
+    participant Inventory_DB
+
+    User ->> Chatbot: "Price of a Tesla Model X?"
+    Chatbot ->> NLP_Engine: Process query
+    NLP_Engine -->> Chatbot: { intent: "ask_price", entities: { make: "Tesla", model: "Model X" } }
+    Chatbot ->> Inventory_DB: SELECT price WHERE make='Tesla'
+    Inventory_DB -->> Chatbot: "No results found"
+    Chatbot -->> User: "Sorry, we don't have Tesla cars in our inventory."

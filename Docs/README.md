@@ -46,7 +46,7 @@ Minimal info (phone number for bookings). No passwords needed (chatbot uses mess
 2.4 DFDs
 2.4.1 [0-level DFD](system-analysis/dfd0level.mmd)
 
-
+/n
 2.4.2 [1-level DFD](system-analysis/dfdlevel1.mmd)
 Key Components Explained
 1. External Entities
@@ -69,6 +69,8 @@ Process	Description	Example
 Inventory System: Structured DB (PostgreSQL) with car details.
 
 Logs: MongoDB/JSON files for conversation history.
+
+
 2.4.3 [level-2 DFD](system-analysis/level2dfd.mmd)
 Rules & Constraints
 Closed-Domain Flow:
@@ -82,8 +84,47 @@ Before booking: Check Inventory.availability_status = TRUE.
 Error Handling:
 
 DB unreachable → "Sorry, I can’t access data right now. Try later."
+P1["1. Process Query"]
+
+Receives raw user input (e.g., "What's the price of an Audi A3?").
+
+Passes the text to preprocessing.
+
+P2A["2.1 Preprocess Text"]
+
+Removes stopwords: Filters out words like "what's," "the," "of."
+
+Tokenizes: Splits the sentence into tokens: ["price", "Audi", "A3"].
+
+Output: Cleaned text → "price Audi A3".
+
+P2B["2.2 Predict Intent"]
+
+NLP model (e.g., Rasa/Dialogflow) classifies the intent as ask_price.
+
+P2C["2.3 Extract Entities"]
+
+Extracts key parameters (entities) from the text:
+
+car_model = "A3"
+
+car_make = "Audi" (if your model detects it).
+
+Output: Structured JSON → { "intent": "ask_price", "entities": { "model": "A3", "make": "Audi" } }.
+
+P3["3. Retrieve Data"]
+
+Uses the extracted parameters to query the database:
+
+sql
+Copy
+SELECT price FROM cars WHERE make = 'Audi' AND model = 'A3';
 
 
+
+2.5 [sequence Diagram](system-analysis/sequence.mmd)
+
+[sequence Diagram Error Handling ](system-analysis/sequenceError.mmd)
 
 
 
