@@ -1,0 +1,41 @@
+erDiagram
+    USER ||--o{ CHATBOT_SESSION : "starts"
+    CHATBOT_SESSION ||--o{ QUERY : "processes"
+    QUERY ||--|{ CAR : "fetches_data"
+    QUERY ||--|{ DEALERSHIP : "fetches_info"
+    USER ||--o{ TEST_DRIVE : "books"
+    TEST_DRIVE }|--|| CAR : "for"
+    CAR ||--o{ FINANCING : "offers"
+
+    USER {
+        string user_id PK
+        string session_id
+        string phone_number
+    }
+    CHATBOT_SESSION {
+        string session_id PK
+        timestamp start_time
+        timestamp end_time
+    }
+    QUERY {
+        string query_id PK
+        string intent
+        json parameters
+        string response
+    }
+    CAR {
+        string car_id PK
+        string make
+        string model
+        float price
+    }
+    TEST_DRIVE {
+        string booking_id PK
+        timestamp slot
+        string status
+    }
+    FINANCING {
+        string plan_id PK
+        float apr
+        int term_months
+    }
