@@ -1,0 +1,8 @@
+erDiagram
+    USER ||--o{ CHATBOT_SESSION : "starts"
+    CHATBOT_SESSION ||--|{ QUERY : "processes"
+    QUERY ||--|{ CAR : "fetches_data"
+    QUERY ||--|{ DEALERSHIP : "fetches_info"
+    USER ||--o{ TEST_DRIVE : "books"
+    TEST_DRIVE }|--|| CAR : "for"
+    CAR ||--o{ FINANCING : "offers"
