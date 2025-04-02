@@ -1,0 +1,54 @@
+classDiagram
+    %% Main Classes
+    class User {
+        +String sessionId
+        +String phoneNumber
+        +List~QueryHistory~ queryHistory
+        +startChatSession()
+    }
+
+    class Chatbot {
+        +String currentState
+        +processQuery(String text)
+        +generateResponse(Intent intent, Map~String, String~ entities)
+    }
+
+    class NLPEngine {
+        +Intent classifyIntent(String text)
+        +Map~String, String~ extractEntities(String text)
+    }
+
+    class Car {
+        +String carId
+        +String make
+        +String model
+        +float price
+        +boolean isAvailable
+        +getPrice()
+        +checkAvailability()
+    }
+
+    class TestDriveBooking {
+        +String bookingId
+        +String userId
+        +String carId
+        +DateTime slot
+        +String status
+        +bookSlot()
+        +cancelBooking()
+    }
+
+    class InventoryDB {
+        +List~Car~ cars
+        +addCar(Car car)
+        +updateCar(String carId, Map~String, Object~ updates)
+        +searchCars(String make, String model) List~Car~
+    }
+
+    %% Relationships
+    User "1" --> "1..*" Chatbot : interacts with
+    Chatbot "1" --> "1" NLPEngine : uses
+    Chatbot "1" --> "1" InventoryDB : queries
+    Chatbot "1" --> "0..*" TestDriveBooking : manages
+    TestDriveBooking "1" --> "1" Car : references
+    InventoryDB "1" --> "0..*" Car : stores

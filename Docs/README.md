@@ -126,5 +126,83 @@ SELECT price FROM cars WHERE make = 'Audi' AND model = 'A3';
 
 [sequence Diagram Error Handling ](system-analysis/sequenceError.mmd)
 
+2.6 [Class Diagram](system-analysis/class.mmd) 
+Key Classes Explained
+1. User
+Attributes:
+
+sessionId: Unique ID for each chat session.
+
+phoneNumber: User identifier (if using SMS/WhatsApp).
+
+queryHistory: Logs past interactions.
+
+Methods:
+
+startChatSession(): Initiates a new conversation.
+
+2. Chatbot (Orchestrator)
+Attributes:
+
+currentState: Tracks conversation state (e.g., "awaiting_test_drive_date").
+
+Methods:
+
+processQuery(): Delegates to NLPEngine and InventoryDB.
+
+generateResponse(): Formats replies based on intent/entities.
+
+3. NLPEngine
+Methods:
+
+classifyIntent(): Returns ask_price, book_test_drive, etc.
+
+extractEntities(): Parses { "make": "Audi", "model": "A3" }.
+
+4. Car
+Attributes:
+
+Standard car details + availability flag.
+
+Methods:
+
+getPrice(), checkAvailability(): Called by InventoryDB.
+
+5. TestDriveBooking
+Methods:
+
+bookSlot(): Validates availability and creates booking.
+
+cancelBooking(): Updates status.
+
+6. InventoryDB
+Methods:
+
+searchCars(): Retrieves cars by make/model (used for price queries).
+
+updateCar(): Modifies availability after bookings.
+
+Relationships
+Relationship	Description
+User → Chatbot	A user can have multiple chat sessions.
+Chatbot → NLPEngine	Delegates NLP tasks.
+Chatbot → InventoryDB	Fetches car data.
+TestDriveBooking → Car	Links bookings to specific cars.
+How This Aligns with Your System
+Closed-Domain Focus:
+
+Only car-related classes (Car, TestDriveBooking) are included.
+
+No generic "Conversation" class (since your chatbot is task-specific).
+
+Retrieval-Based Design:
+
+InventoryDB.searchCars() handles price/availability queries.
+
+No generative AI methods (e.g., generateCarDescription()).
+
+Scalability:
+
+NLPEngine can be swapped (e.g., Rasa → Dialogflow) without changing other classes.
 
 
