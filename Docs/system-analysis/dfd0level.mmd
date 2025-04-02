@@ -1,0 +1,7 @@
+flowchart TD
+    U((User)) -->|"Query (e.g., price, booking)"| C[Chatbot System]
+    A((Dealership Admin)) -->|"Update inventory/data"| C
+    C -->|"Response (text)"| U
+    C -->|"Store logs/analytics"| D[(Database)]
+    C -->|"Fetch car data"| I[(Inventory System)]
+    C -->|"Sync bookings"| B[Booking Calendar]

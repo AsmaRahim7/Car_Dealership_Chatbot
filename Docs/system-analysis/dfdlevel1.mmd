@@ -1,0 +1,20 @@
+
+flowchart TB
+ subgraph s1["chatbot system"]
+        n1["01--Process User query"]
+        n2["02--Classify NLP"]
+        n3["03--Retrieve Data"]
+        n4["04--Generate Response"]
+        n5["05--Log interactions"]
+  end
+    n6(["User"]) -- Query --> n1
+    n1 -- Raw Text --> n2
+    n2 -- "Intent-ask Price" --> n3
+    n3 -- SQL Query --> n7(["Inventory"])
+    n3 -- "API-Call" --> n8["Booking API"]
+    n7 -- Car Data --> n4
+    n8 -- Slot Confirmation --> n4
+    n4 -- REsponse --> n6
+    n1 -- Geenrates --> n9[("Logs")]
+    n2 -- Generates logs --> n9
+    n10(("Admin")) -- updates --> n7
