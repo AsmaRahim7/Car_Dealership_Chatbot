@@ -1,5 +1,5 @@
-flowchart TB
-    subgraph s1["Use Case"]
+flowchart LR
+ subgraph s1["Use Case"]
         n3(["Ask for price"])
         n4(["Book a test drive"])
         n5(["Update inventory"])
@@ -12,8 +12,19 @@ flowchart TB
         n13(["Evaluate Price"])
         n14(["Evaluate availability"])
         n15(["Booking slots"])
-    end
-    n1(["User"])
-    n2(["Admin"])
-    n7["Database"]
-    n7["@{ shape: cyl }"]
+  end
+    n1(["User"]) -- enquires --> n3 & n9 & n10
+    n1 -- enquires for --> n4 & n6
+    n2(["Admin"]) -- updates --> n5
+    n1 -- ask for --> n8
+    n2 -- evaluates --> n11
+    n2 -- checks --> n12
+    n2 -- enquires for --> n13
+    n2 -- validates --> n14
+    n14 -. saves updates .-> n7(["Database"])
+    n2 -- books --> n15
+    n15 -. saves .-> n7
+
+    style s1 fill:#757575
+
+
