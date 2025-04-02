@@ -43,8 +43,9 @@ USER
 
 Minimal info (phone number for bookings). No passwords needed (chatbot uses messaging platforms).
 
-2.4 ### DFDs
+2.4 DFDs
 2.4.1 [0-level DFD](system-analysis/dfd0level.mmd)
+
 
 2.4.2 [1-level DFD](system-analysis/dfdlevel1.mmd)
 Key Components Explained
