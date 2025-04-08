@@ -1,0 +1,673 @@
+version: "3.1"
+
+nlu: "3.1"
+-intent: greet
+examples: |
+    - Hey  
+    - Hello  
+    - Hi  
+    - Good morning  
+    - Good evening  
+    - Hey there  
+    - Good afternoon  
+    - Hiya  
+    - Howdy  
+    - Greetings  
+    - Salutations  
+    - Yo  
+    - What's up?  
+    - How's it going?  
+    - Hello there!  
+    - Hi there!  
+    - Nice to see you  
+    - How are you doing?  
+    - Good day  
+    - Sup  
+    - Ahoy  
+    - How's everything?  
+    - Good to see you  
+    - Top of the morning to you  
+    - Howdy partner!  
+    - Welcome back  
+
+-intent: goodbye
+examples: |
+    - Bye  
+    - Goodbye  
+    - See you around  
+    - See you later  
+    - Bye bye  
+    - Take care  
+    - Later!  
+    - Catch you later  
+    - Have a good one  
+    - Farewell  
+    - So long  
+    - Until next time  
+    - Peace out  
+    - Adios  
+    - Cheerio  
+    - Toodles  
+    - Gotta go  
+    - Laters  
+    - Be seeing you  
+    - Goodnight  
+    - Talk to you later  
+    - Bye for now!  
+    - Have a nice day  
+    - Take it easy  
+    - See ya  
+
+-intent: gratitude
+examples: |  
+    - Thank you  
+    - Thats helpful  
+    - Thats great  
+    - Thanks that will help  
+    - Thank you for your time  
+    - Thats best  
+    - Thanks a lot  
+    - Appreciate it  
+    - You’re amazing  
+    - That’s perfect  
+    - Thanks for the info  
+    - You’ve been a great help  
+    - Awesome, thanks!  
+    - I appreciate your help  
+    - That’s exactly what I needed  
+    - Thank you so much  
+    - You’re a lifesaver  
+    - That’s fantastic  
+    - Thanks for clarifying  
+    - This is super helpful  
+    - You rock!  
+    - Much obliged  
+    - Thanks a bunch  
+    - That’s very kind of you  
+    - I owe you one  
+    - Perfect, thank you!  
+
+-intent: deny
+examples: |  
+    - Do you have [car seats ](unavailable_service) available?  
+    - Do you provide [car paints] (unavailable_service)?  
+    - Do you provide car services like [MOT](unavailable_service)?  
+    - Do you offer other [car services](unavailable_service)?  
+    - Do you provide heavy [truck assistance] (unavailable_service)?  
+    - Do you have [motorbikes](unavailable_service) available?  
+    - Do you deal in [trucks](unavailable_service)?  
+    - Do you deal in other [services](unavailable_service)?  
+    - Do you offer car [rental services](unavailable_service)?  
+    - Do you provide [financing] (unavailable_service) options?  
+    - Do you sell [electric vehicles](unavailable_service)?  
+    - Do you offer [car customization](unavailable_service)?  
+    - Do you [repair engines](unavailable_service)?  
+    - Do you have [hybrid cars](unavailable_service)?  
+    - Do you provide [insurance](unavailable_service)?  
+    - Do you offer c[ar washing](unavailable_service)?  
+    - Do you sell [car accessories](unavailable_service)?  
+    - Do you provide [towing services](unavailable_service)?  
+    - Do you have [vintage cars](unavailable_service)?  
+    - Do you sell [spare parts](unavailable_service)?  
+    - Do you offer [delivery services](unavailable_service)?  
+    - Do you provide [car loans](unavailable_service)?  
+    - Do you deal in [luxury cars](unavailable_service)?  
+    - Do you offer [trade-in](unavailable_service) options?  
+
+-intent: Clarification
+example: |
+    -I can assist you with cars data
+    -I can assist you with cars information,
+    -Sorry, I can only provide information about cars, however I can send your information and contact details to the admin to contact you back?
+
+-Intent: inquire_by_registration
+examples: |
+    - What’s the price of the car with reg [WU60ZNK](reg)?
+    - Tell me about reg [CA15BJX](reg)
+    - Is [DA07KCU](reg) available?
+    - Mileage for reg [DV65GZL](reg)?
+    - When was [BG07XVR](reg) registered?
+    - MOT history for [AF13LYV](reg)
+    - Is [OY14ZVM](reg) taxed?
+    - Fuel type for [RE10KCK](reg)?
+    - Is [VE65OWM](reg) a hybrid?
+    - Tax cost for [DA07KCU](reg)?
+    - What’s the engine size for [WX63NPU](reg)?
+    - Colour of [BG07XVR](reg)?
+    - MOT expiry for [DA07KCU](reg)?
+    - Year of manufacture for [RE10KCK](reg)?
+    - Transmission type for [AF13LYV](reg)?
+    - CO2 emissions for [OY14ZVM](reg)?
+    - Is [VE65OWM](reg) sold?
+    - Keeper start date for [WU60ZNK](reg)?
+    - V5C issue date for [CA15BJX](reg)?
+    - Wheel plan for [DV65GZL](reg)?
+    - Tax due date for [DA07KCU](reg)?
+    - Listing date for [BG07XVR](reg)?
+    - Car views for [AF13LYV](reg)?
+
+
+-Intent: ask_car_description
+examples: |
+    - Describe the car
+    - What features does it have?
+    - Any special modifications?
+    - Is there a sunroof?
+    - Does it have parking sensors?
+    - What’s the interior like?
+    - Are there alloy wheels?
+    - Does it have a navigation system?
+    - Is there a leather interior?
+    - What safety features are included?
+    - Does it have a rearview camera?
+    - Is the upholstery fabric or leather?
+    - Are there heated seats?
+    - What tech features come with it?
+    - Does it have a tow bar?
+    - Is there a spare tire?
+    - What’s the boot capacity?
+    - Does it have lane assist?
+    - Is the car accident-free?
+    - Any aftermarket upgrades?
+    - What’s the audio system like?
+    - Does it have climate control?
+    - Is there a warranty included?
+
+-Intent: inquire_make_model
+  examples: |
+    - Is this a [Hyundai](make)?
+    - What model is this?
+    - Is it a [Kia Soul](make_model)?
+    - Is this a [Toyota Yaris](make_model)?
+    - What’s the make?
+    - Is it a [Volkswagen Golf](make_model)?
+    - Is this a [Volvo XC60](make_model)?
+    - What’s the model variant?
+    - Is this a [Vauxhall Mokka](make_model)?
+    - Is it a [John Deere](make)?
+    - What’s the exact model name?
+    - Is this the [EcoDynamic](ModelVariant) variant?
+    - Does it have a [sport](ModelVariant) package?
+    - Is it the [LX](ModelVariant) edition?
+    - What’s the trim level?
+    - Is this the [Hybrid Icon](ModelVariant)?
+    - Does it come in [GT Line](ModelVariant)?
+    - What’s the body style?
+    - Is this the [4x4](WheelPlan) version?
+    - What’s the edition year?
+    - Is it the [Automatic](Transmission) model?
+    - Does it have a [turbo](engine) engine?
+
+-Intent: check_tax_status
+  examples: |
+    - Is the car taxed?
+    - What’s the road tax status?
+    - Has the tax been paid?
+    - Is this vehicle untaxed?
+    - Is the tax valid?
+    - When does the tax expire?
+    - How much tax is due?
+    - Is the tax up to date?
+    - What’s the tax status?
+    - Does it have a tax disc?
+    - Is the tax included in the price?
+    - What’s the annual tax cost?
+    - Is the tax band low?
+    - How much for 12 months of tax?
+    - Is the tax overdue?
+    - Can I pay the tax monthly?
+    - What’s the tax rate for [diesel](fuel_type) cars?
+    - Is the tax exempt for electric vehicles?
+    - What’s the tax penalty for late payment?
+    - Is the tax refundable?
+    - How do I check the tax status?
+    - Is the tax status verified?
+
+-Intent: check_mot_status
+examples: |
+    - Is the MOT valid?
+    - Does it have a valid MOT?
+    - When was the last MOT done?
+    - What’s the MOT status?
+    - Has the MOT expired?
+    - Is there an MOT certificate?
+    - Is the MOT due soon?
+    - How long is the MOT valid?
+    - Can I see the MOT history?
+    - Does the car pass MOT?
+    - Are there any MOT advisories?
+    - What’s the MOT test number?
+    - How many miles were on the last MOT?
+    - Are there pending MOT issues?
+    - Is the MOT due this month?
+    - What’s the MOT expiry date?
+    - Has it ever failed an MOT?
+    - Is the MOT mileage accurate?
+    - Was the MOT done at a certified center?
+    - Is the MOT valid nationwide?
+    - Can I extend the MOT?
+    - Is the MOT included in the price?
+
+-Intent: ask_export_status
+examples: |
+    - Has this car been exported?
+    - Is this vehicle for export?
+    - Was it exported to another country?
+    - Is it an export model?
+    - Is this car sold overseas?
+    - Can I export this car?
+    - Is the car marked as exported?
+    - Has it been shipped internationally?
+    - Is this a UK-only vehicle?
+    - Does the export status affect the price?
+    - Are there export restrictions?
+    - Is it RHD or LHD?
+    - Does it meet EU export standards?
+    - Is the paperwork ready for export?
+    - What’s the export tax?
+    - Can I drive it abroad?
+    - Is the mileage in kilometers?
+    - Are there import duties?
+    - Is the VIN export-compliant?
+    - Does it have a Certificate of Export?
+    - Is the warranty valid overseas?
+    - What’s the export eligibility?
+
+-Intent: ask_average_value
+example: |
+
+- What’s the average value for this car?
+- How does the price compare to the average?
+- Is this car priced above average?
+- What’s the average mileage for this model?
+- Is the fuel efficiency average?
+- What’s the average age of this car type?
+- Does it have average CO2 emissions?
+- Is the tax cost average?
+- What’s the average MOT pass rate?
+- How does this car rank against others?
+
+-Intent: ask_engine_details
+example: |
+- What’s the engine size?
+- Is it a diesel engine?
+- Does it have a turbocharged engine?
+- What’s the engine type?
+- How powerful is the engine?
+- Is the engine eco-friendly?
+- Does the engine have any issues?
+- What’s the engine’s horsepower?
+- Is it a hybrid engine?
+- Is the engine fuel-efficient?
+
+-Intent: ask_engine_litres
+examples: |
+    - What’s the engine size in litres?
+    - Is it a 1.6L engine?
+    - How many litres is the engine?
+    - Does it have a 2.0L engine?
+    - Is the engine size 1.2 litres?
+    - What’s the displacement?
+    - Is it a 1.5L hybrid engine?
+    - What’s the cubic capacity?
+    - Is the engine 1.8 litres?
+    - How big is the engine?
+    - What’s the bore and stroke?
+    - Is it a V6 or V8 engine?
+    - Does it have a turbocharged 2.0L?
+    - What’s the compression ratio?
+    - Is the engine undersquare or oversquare?
+    - How many cylinders does it have?
+    - Is the engine naturally aspirated?
+    - What’s the power output per litre?
+    - Is it a fuel-efficient engine?
+    - Does it have a catalytic converter?
+    - What’s the engine’s torque?
+    - Is the engine type DOHC?
+
+-Intent: ask_euro_status
+example: |
+- What Euro emission standard does it meet?
+- Is it Euro 6 compliant?
+- Does it meet Euro 5 standards?
+- What’s the Euro rating?
+- Is this car Euro 4 approved?
+- What’s the emission standard?
+- Does it comply with Euro 3?
+- Is it environmentally friendly?
+- What’s the CO2 emission level?
+- Is it Euro 6d compliant?
+
+-Intent: ask_fuel_type
+example: |
+- Does it use petrol?
+- Is this a diesel car?
+- What fuel does it take?
+- Is it a hybrid?
+- Does it run on electric?
+- Is it a petrol-electric hybrid?
+- What’s the fuel type?
+- Is this car gasoline-powered?
+- Does it require unleaded fuel?
+- Is it a plug-in hybrid?
+
+-Intent: ask_keeper_start_date
+example: |
+- When did the current keeper start?
+- How long has the owner had this car?
+- What’s the keeper start date?
+- When was the keeper registered?
+- Is the keeper new?
+- How old is the ownership record?
+- Has the keeper changed recently?
+- When did the latest keeper begin?
+- Is the keeper history available?
+- How many keepers has the car had?
+-Intent: ask_last_mot_mileage
+example: |
+- What was the mileage at the last MOT?
+- How many miles were on the clock during the MOT?
+- What’s the MOT mileage history?
+- Did the mileage increase after the MOT?
+- What’s the last recorded MOT mileage?
+- Is the MOT mileage accurate?
+- How many miles were driven since the MOT?
+- What’s the odometer reading from the last MOT?
+- Was the mileage verified during MOT?
+- What’s the MOT mileage discrepancy?
+
+-Intent: ask_v5c_issue_date
+example: |
+- When was the V5C logbook issued?
+- What’s the V5C issue date?
+- Is the V5C document up to date?
+- When was the logbook last updated?
+- How old is the V5C certificate?
+- Is the V5C valid?
+- When did the DVLA issue the V5C?
+- Can I see the V5C issue date?
+- Has the V5C been reissued recently?
+- Is the V5C original or a duplicate?
+
+-Intent: ask_mot_history
+example: |
+- Can I see the MOT history?
+- How many MOT tests has it passed?
+- Are there any MOT advisories?
+- What’s the MOT expiry date?
+- Has it ever failed an MOT?
+- What’s the MOT test number?
+- Is the MOT certificate available?
+- How many miles were on the last MOT?
+- Are there pending MOT issues?
+- Is the MOT due soon?
+
+-Intent: ask_mileage_issues
+example: |
+
+- Are there any mileage discrepancies?
+- Has the mileage been tampered with?
+- Is the odometer accurate?
+- Does the car have mileage issues?
+- Was the mileage rolled back?
+- Is there a mileage mismatch?
+- How reliable is the mileage reading?
+- Are there gaps in the mileage history?
+- Is the mileage consistent with MOT records?
+- Has the mileage been verified?
+
+-Intent: ask_model_description
+example: |
+- What’s the model description?
+- Can you describe the car model?
+- Is this the Classic or Sport variant?
+- What’s included in the model package?
+- Does the model have a sunroof?
+- What’s the trim level?
+- Is this the EcoDynamic model?
+- Does the model have alloy wheels?
+- What’s the edition of this car?
+- Is it the SE or SX variant?
+
+-Intent: ask_model_variant
+example: |
+- What’s the model variant?
+- Is this the Hybrid Icon version?
+- Is it the Shaker or Sport variant?
+- What’s the trim level?
+- Does it come in an Exclusive package?
+- Is this the EcoFlex model?
+- What’s the variant name?
+- Is it the SR7 or LX edition?
+- Does it have a special edition badge?
+- Is this the Proceed SE variant?
+
+-Intent: ask_primary_colour
+example: |
+- What’s the car’s color?
+- Is it red or blue?
+- What’s the primary colour?
+- Does it come in black?
+- Is the exterior colour purple?
+- Is this car available in white?
+- What shade of green is it?
+- Is the colour faded?
+- Does it have metallic paint?
+- Is the interior colour matching?
+
+-Intent: ask_registration_date
+example: |
+- When was this car registered?
+- What’s the registration date?
+- How old is the registration?
+- Is the registration date recent?
+- When did it first hit the road?
+- What’s the initial registration year?
+- Is the registration document available?
+- When was the DVLA registration done?
+- Is the registration original?
+- What’s the car’s registration age?
+
+-Intent: ask_registration_place
+example: |
+- Where was this car registered?
+- What’s the registration location?
+- Is it a UK-registered car?
+- Was it registered in London?
+- What region is the registration from?
+- Is the registration place Scotland?
+- Does the registration show the county?
+- Is it an imported registration?
+- What’s the DVLA office for registration?
+- Is the registration plate local?
+
+-Intent: ask_car_status
+example: |
+- Is this car still available?
+- What’s the current status?
+- Has the car been sold?
+- Is it marked as exported?
+- Is the status active or inactive?
+- Is the car under offer?
+- What’s the listing status?
+- Is the car reserved?
+- Has the status changed recently?
+- Is the car ready for immediate sale?
+
+-Intent: ask_annual_tax_cost
+example: |
+- What’s the annual road tax cost?
+- How much is the 12-month tax?
+- What’s the yearly tax amount?
+- Is the tax £240 per year?
+- Does the tax cost £150 annually?
+- How much tax do I pay for a year?
+- What’s the road tax for 12 months?
+- Is the annual tax rate high?
+- What’s the yearly vehicle tax?
+- Is the tax cost fixed for a year?
+
+-Intent: ask_semi_annual_tax_cost
+example: |
+- What’s the 6-month tax cost?
+- How much is the half-year tax?
+- Can I pay tax every 6 months?
+- What’s the tax for six months?
+- Is the semi-annual tax £130?
+- How much is the 6-month road tax?
+- What’s the tax rate for half a year?
+- Is the tax cheaper for 6 months?
+- Can I see the 6-month tax breakdown?
+- Does the tax cost vary for 6 months?
+
+-Intent: ask_transmission
+example: |
+- Is it automatic or manual?
+- What’s the transmission type?
+- Does it have a CVT gearbox?
+- Is the transmission manual?
+- Is it a dual-clutch transmission?
+- Does it come with an automatic gearbox?
+- What’s the gearbox type?
+- Is the transmission smooth?
+- Is it a 6-speed transmission?
+- Does it have paddle shifters?
+
+-Intent: ask_type_approval
+example: |
+- What’s the type approval?
+- Is it EU-approved?
+- Does it meet UK type approval?
+- What’s the certification status?
+- Is the car type-approved for sale?
+- Is it compliant with safety standards?
+- What’s the homologation status?
+- Does it have European approval?
+- Is the type approval valid?
+- What’s the vehicle certification?
+
+-Intent: ask_vehicle_age
+example: |
+- How old is this car?
+- What’s the vehicle’s age?
+- Is it a 2010 model?
+- When was the car manufactured?
+- Is the car 5 years old?
+- What’s the production year?
+- How many years has it been on the road?
+- Is it a vintage car?
+- What’s the age of the vehicle?
+- Is the car brand new?
+
+-Intent: ask_wheel_plan
+example: |
+- What’s the wheel plan?
+- Is it a 2-axle vehicle?
+- Does it have a rigid body?
+- What’s the axle configuration?
+- Is the wheel plan standard?
+- How many axles does it have?
+- Is it a 4x4 wheel plan?
+- What’s the chassis type?
+- Is the wheel plan suitable for towing?
+- Does it have a double-wheel rear axle?
+
+-Intent: ask_manufacture_year
+example: |
+
+- When was this car made?
+- What’s the year of manufacture?
+- Is it a 2015 model?
+- What year was it built?
+- Is the car from 2010?
+- When did it roll off the production line?
+- What’s the manufacturing date?
+- Is it a 2020 model year?
+- What’s the build year?
+- Is the car a 2007 model?
+-Intent: check_sold_status
+example: |
+- Has this car been sold?
+- Is the car still available?
+- What’s the sold status?
+- Is it marked as sold?
+- Has the car been reserved?
+- Is the listing active?
+- Is the vehicle off the market?
+- Can I still buy this car?
+- Has the sale been finalized?
+- Is it sold or available?
+
+-Intent: ask_co2_emissions
+example: |
+- What’s the CO2 emissions?
+- How eco-friendly is this car?
+- What’s the carbon footprint?
+- Does it have low CO2 emissions?
+- What’s the emission rating?
+- Is it a low-tax band vehicle?
+- What’s the CO2 output per km?
+- Is it compliant with emission laws?
+- What’s the carbon dioxide level?
+- Does it meet emission standards?
+
+-Intent: ask_manufacturer
+example: |
+- Who manufactured this car?
+- Is it a Hyundai?
+- What’s the car brand?
+- Is this a Kia?
+- Is the manufacturer Volkswagen?
+- Is it a Toyota?
+- What company made this vehicle?
+- Is it a British-made car?
+- What’s the make of the car?
+- Is the manufacturer Subaru?
+-Intent: ask_mileage
+example: |
+- What’s the mileage?
+- How many miles has it done?
+- What’s the total distance driven?
+- Is the mileage high?
+- How many kilometers has it traveled?
+- What’s the odometer reading?
+- Is the mileage genuine?
+- Has it done over 100,000 miles?
+- What’s the current mileage?
+- Is the mileage low for its age?
+-Intent: inquire_price
+example: |
+- How much does this car cost?
+- What’s the selling price?
+- Is the price negotiable?
+- How much is the car listed for?
+- What’s the asking price?
+- Can you tell me the price?
+- Is it under £3000?
+- What’s the final price?
+- Does the price include VAT?
+- Is there a discount available?
+- How much is this car?
+- What's the price of the car with reg [WU60ZNK](reg)?
+- What’s the cost?
+- How much does the Hyundai i20 cost?
+- What’s the price tag?
+- Is the car with reg [CA15BJX](reg) under £3000?
+
+
+-Intent: ask_listing_date
+
+example: |
+- When was this car listed?
+- How old is the listing?
+- Is the listing recent?
+- What’s the creation date of the ad?
+- When did the seller post this?
+- Is the listing updated?
+- How long has it been on sale?
+- Was the listing created today?
+- What’s the
+
+ - intent: inquire_price
+  examples: |
+    

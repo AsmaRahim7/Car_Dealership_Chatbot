@@ -1,0 +1,102 @@
+version: "3.1"
+
+intents:
+ -deny 
+ -gratitude
+ -goodbye
+ -greet
+ -inquire_by_registration
+ -ask_car_description
+ -inquire_make_model
+ -check_tax_status
+ -check_mot_status
+ -ask_export_status
+ -ask_average_value
+ -ask_engine_details
+ -ask_engine_litres
+ -ask_euro_status
+ -ask_fuel_type
+ -ask_keeper_start_date
+ -ask_last_mot_mileage
+ -ask_v5c_issue_date
+ -ask_mot_history
+ -ask_mileage_issues
+ -ask_model_description
+ -ask_model_variant
+ -ask_primary_colour
+ -ask_registration_date
+ -ask_registration_place
+ -ask_car_status
+ -ask_annual_tax_cost
+ -ask_semi_annual_tax_cost
+ -ask_transmission
+ -ask_type_approval
+ -ask_vehicle_age
+ -ask_wheel_plan
+ -ask_manufacture_year
+ -check_sold_status
+ -ask_co2_emissions
+ -ask_manufacturer
+ -ask_mileage
+ -inquire_price
+ -ask_listing_date
+ - ask_mot_expiry
+  - ask_car_views
+
+  entities:
+  - reg
+  - fuel_type
+  - make
+  - colour
+  - transmission
+  - mileage
+  - year
+  - tax_status
+  - mot_status
+  - unavailable_service 
+
+responses:
+  utter_default:
+    - text: "Let me check that for you!"
+    - text: "give me a moment i will check for you"
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+    - text: "Hi! how I can help you today?"
+    - text: "hi, how I should help you today?"
+    - text: "Hello! How can I help?"
+    - text: "Hi there! What can I do for you?"
+    - text: "Hey! Ready to assist."
+    - text: "Greetings! Let me know what you need."
+
+responses:
+  utter_goodbye:
+    - text: "Goodbye! Feel free to reach out if you need more help."
+    - text: "Goodbye! Feel free to reach out if you need more help. 👋"
+    - text: "Take care! Have a great day!"
+    - text: "See you later! Don’t hesitate to ask if you have more questions."
+    - text: "Bye for now! Safe travels! 🚗"
+    - text: "Farewell! We’re here if you need us again."
+responses:  
+  utter_gratitude_response:  
+    - text: "You’re welcome! Happy to help. 😊"  
+    - text: "Glad I could assist! Let me know if you need anything else."  
+    - text: "Anytime! Feel free to reach out again."  
+    - text: "My pleasure! Don’t hesitate to ask if you have more questions."  
+    - text: "No problem at all! Enjoy your day. 🚗"  
+
+  slots:
+  unavailable_service:
+    type: text
+    influence_conversation: false  # Only used for data tracking
+    auto_fill: true  # Auto-fill if entity is detected
+responses:  
+  utter_deny_response:  
+    - text: "We don’t offer {unavailable_service} service, but we specialize in [car sales/trade-ins]. How else can I assist? 🚗"  
+    - text: "Unfortunately, we don’t provide {unavailable_service}, but we’d love to help you find your perfect car!"  
+    - text: "{unavailable_service} not currently available, but we’re experts in [used cars/new models]. Let’s explore options!"  
+    - text: "We don’t handle {unavailable_service}, but we can help you browse our car inventory. What are you looking for?"  
+    - text: "Sorry, we don’t offer {unavailable_service}. Let’s focus on finding you a great vehicle!"  
+  
+

@@ -1,0 +1,29 @@
+
+- rule: Respond to Gratitude  
+  steps:  
+    - intent: gratitude  
+    - action: utter_gratitude_response  
+
+- rule: Respond to hello
+  steps:
+  -intent: greet
+  -action: utter_greet
+
+- rule: respond to goodbye
+  steps:
+  -intent: goodbye
+  -response: utter_goodbye
+
+- story: Handle deny intent  
+  steps:  
+    - intent: deny  
+    - action: utter_deny_response 
+
+- story: Handle unavailable service request  
+  steps:  
+    - intent: deny  
+      entities:  
+        - unavailable_service  
+    - slot_was_set:  
+        - unavailable_service  
+    - action: utter_deny_response  
